@@ -39,7 +39,7 @@ import {
   TRANSACTION_CATEGORY_OPTIONS,
   TRANSACTION_PAYMENT_METHOD_OPTIONS,
   TRANSACTION_TYPE_OPTIONS,
-} from "../_contants/transaction";
+} from "../_constants/transaction";
 
 interface UpsertTransactionDialogProps {
   isOpen: boolean;
