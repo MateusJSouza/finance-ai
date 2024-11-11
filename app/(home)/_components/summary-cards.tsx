@@ -17,7 +17,6 @@ const SummaryCards = async ({ month }: SummaryCardsProps) => {
 
   return (
     <div className="space-y-6">
-      {/* PRIMEIRO CARD */}
       <SummaryCard
         icon={<WalletIcon size={16} />}
         size="large"
@@ -25,7 +24,6 @@ const SummaryCards = async ({ month }: SummaryCardsProps) => {
         amount={balance}
       />
 
-      {/* OUTROS CARDS */}
       <div className="grid grid-cols-3 gap-6">
         <SummaryCard
           icon={<PiggyBankIcon size={16} />}
