@@ -4,13 +4,13 @@ import { Pie, PieChart } from "recharts";
 
 import { Card, CardContent } from "@/app/_components/ui/card";
 import {
-  ChartConfig,
+  type ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
 } from "@/app/_components/ui/chart";
 import { TransactionType } from "@prisma/client";
-import { TransactionPercentagePerType } from "@/app/_data/get-dashboard/types";
+import type { TransactionPercentagePerType } from "@/app/_data/get-dashboard/types";
 import { TrendingDownIcon, TrendingUpIcon } from "lucide-react";
 import PercentageItem from "./percentage-item";
 
