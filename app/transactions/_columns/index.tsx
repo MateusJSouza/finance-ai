@@ -6,6 +6,7 @@ import type { Transaction } from "@prisma/client";
 import { Button } from "@/app/_components/ui/button";
 import { TrashIcon } from "lucide-react";
 import EditTransactionButton from "../_components/edit-transaction-button";
+import { formatCurrency } from "@/app/utils/currency";
 
 export const TRANSACTION_CATEGORY_LABELS = {
   EDUCATION: "Educação",
@@ -67,10 +68,7 @@ export const transactionColumns: ColumnDef<Transaction>[] = [
     accessorKey: "amount",
     header: "Valor",
     cell: ({ row: { original: transaction } }) =>
-      new Intl.NumberFormat("pt-BR", {
-        style: "currency",
-        currency: "BRL",
-      }).format(Number(transaction.amount)),
+      formatCurrency(Number(transaction.amount)),
   },
   {
     accessorKey: "actions",
