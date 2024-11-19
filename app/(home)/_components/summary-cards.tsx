@@ -5,23 +5,31 @@ import {
   WalletIcon,
 } from "lucide-react";
 import SummaryCard from "./summary-card";
-import getDashboard from "@/app/_data/get-dashboard";
 
-interface SummaryCardsProps {
+interface SummaryCards {
   month: string;
+  balance: number;
+  depositsTotal: number;
+  investmentsTotal: number;
+  expensesTotal: number;
+  userCanAddTransaction?: boolean;
 }
 
-const SummaryCards = async ({ month }: SummaryCardsProps) => {
-  const { balance, investmentsTotal, depositsTotal, expensesTotal } =
-    await getDashboard(month);
-
+const SummaryCards = async ({
+  balance,
+  depositsTotal,
+  expensesTotal,
+  investmentsTotal,
+  userCanAddTransaction,
+}: SummaryCards) => {
   return (
     <div className="space-y-6">
       <SummaryCard
         icon={<WalletIcon size={16} />}
-        size="large"
         title="Saldo"
         amount={balance}
+        size="large"
+        userCanAddTransaction={userCanAddTransaction}
       />
 
       <div className="grid grid-cols-3 gap-6">
@@ -30,16 +38,14 @@ const SummaryCards = async ({ month }: SummaryCardsProps) => {
           title="Investido"
           amount={investmentsTotal}
         />
-
         <SummaryCard
           icon={<TrendingUpIcon size={16} className="text-primary" />}
           title="Receita"
           amount={depositsTotal}
         />
-
         <SummaryCard
           icon={<TrendingDownIcon size={16} className="text-red-500" />}
-          title="Despesa"
+          title="Despesas"
           amount={expensesTotal}
         />
       </div>
